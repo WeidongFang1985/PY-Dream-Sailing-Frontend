@@ -7,7 +7,10 @@ const HomePage = () => {
 	return (
 		<div className="homepage">
 			<Header />
-			<Campaign />
+			<div className="main">
+				<Campaign />
+			</div>
+
 		</div>
 	);
 };
