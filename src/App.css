@@ -3,3 +3,8 @@
     justify-content: center;
     max-width: 1280px;
 }
+
+.link-style {
+    text-decoration: none;
+    color: inherit;
+}

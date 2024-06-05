@@ -11,7 +11,7 @@ const Campaign = () => {
         const fetchedCampaigns = await getAllCampaigns();
         const approvedCampaigns = fetchedCampaigns.filter(campaign => campaign.is_approved === "true"); // Filter only approved campaigns
         setCampaigns(approvedCampaigns.map(campaign => ({ ...campaign, expanded: false }))); // Add an expanded state to each campaign
-        console.log(approvedCampaigns);
+        // console.log(approvedCampaigns);
       } catch (error) {
         console.error('Error fetching campaigns:', error);
       }

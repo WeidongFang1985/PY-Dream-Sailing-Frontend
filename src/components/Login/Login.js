@@ -9,7 +9,6 @@ const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword ] = useState('');
 	const [errorMessage, setErrorMessage] = useState(null);
-	const [isLogin, setIsLogin] = useState(false);
 
 	const emailOnChange = (e) => {
 		setErrorMessage('')
@@ -51,7 +50,6 @@ const Login = () => {
 			}
 			if (res.status === 201) {
 				localStorage.setItem('userData', JSON.stringify(res.data));
-				setIsLogin(true);
 				navigate('/');
 			}})
 
@@ -79,8 +77,6 @@ const Login = () => {
 				<br/><br/>
 				<button type="submit">Login -></button>
 			</form>
-			<br/><br/>
-			{isLogin && <div>Login Success!</div>}
 		</div>
 	);
 };
