@@ -60,10 +60,19 @@
     gap: 10px;
 }
 
-.campaigns-item__content-user img {
+.campaigns-item__content-userAvatar {
     width: 32px;
     height: 32px;
     border-radius: 50%;
+}
+
+.campaigns-item__content-business {
+    display: flex;
+    align-items: center;
+}
+
+.campaigns-item__content-businessIcon {
+    width: 20px;
 }
 
 .campaigns-item__enclosure-img {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAllCampaigns } from "../../services/getAllCampaigns";
 import hot from '../../assets/hot.png';
+import business from '../../assets/business.png';
 
 const Campaign = () => {
   const [campaigns, setCampaigns] = useState([]);
@@ -11,7 +12,6 @@ const Campaign = () => {
         const fetchedCampaigns = await getAllCampaigns();
         const approvedCampaigns = fetchedCampaigns.filter(campaign => campaign.is_approved === "true"); // Filter only approved campaigns
         setCampaigns(approvedCampaigns.map(campaign => ({ ...campaign, expanded: false }))); // Add an expanded state to each campaign
-        // console.log(approvedCampaigns);
       } catch (error) {
         console.error('Error fetching campaigns:', error);
       }
@@ -42,8 +42,14 @@ const Campaign = () => {
                     <h3>{campaign.title}</h3>
                     <p className="content-limited">{truncateAtFullWord(campaign.content, 500)}... <span className="read-more">Read More</span></p>
                     <div className="campaigns-item__content-user">
-                      <img src={campaign.author.avatar} alt="User avatar"/>
+                      <img src={campaign.author.avatar} alt="User avatar" className="campaigns-item__content-userAvatar"/>
                       <span>{campaign.author.username}</span>
+                      {campaign.author.is_business &&
+                        <div className="campaigns-item__content-business">
+                          <span>(</span>
+                          <img src={business} alt="Business" className="campaigns-item__content-businessIcon"/>
+                          <span>&nbsp;- Business)</span>
+                        </div>}
                     </div>
                   </div>
                   <div className="campaigns-item__content-img">
