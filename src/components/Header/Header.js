@@ -3,14 +3,16 @@ import logo from '../../assets/logo.png';
 // import night from '../../assets/night.png';
 // import edit from '../../assets/edit.png';
 // import user from '../../assets/user.png';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { authToken } from '../../services/authToken';
 import {useEffect, useState} from "react";
 import {getUserData} from "../../services/getUserData";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(false);
   const [user, setUser] = useState('');
+  const [userId, setUserId] = useState('');
 
   useEffect(() => {
     const authTokenValidation = async () => {
@@ -31,11 +33,13 @@ const Header = () => {
     if(username) {
       setUser(username.charAt(0));
     }
+    setUserId(getUserData().id);
   }, []);
 
   const logout = () => {
     localStorage.clear();
     setIsLogin(false);
+    navigate('/');
   }
 
   return (
@@ -68,10 +72,13 @@ const Header = () => {
             <li>
               {isLogin ?
                 <div className="header-container__nav-user">
-                  <span className="header-container__nav-icon" >
+                  <Link to={`/profile/${userId}`} className="link-no-style">
+                  <span className="header-container__nav-icon">
                     {user}
                   </span>
-                  <span onClick={logout}>Logout</span>
+                </Link>
+
+                <span onClick={logout}>Logout</span>
                 </div>
                 : <span><Link to="/login" className="link-no-style">Login</Link></span>
               }</li>

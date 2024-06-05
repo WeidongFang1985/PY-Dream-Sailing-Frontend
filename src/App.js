@@ -3,6 +3,7 @@ import HomePage from "./views/Homepage/HomePage";
 import {Route, Routes} from "react-router-dom";
 import Login from "./views/Login/Login";
 import Register from "./views/Register/Register";
+import ViewProfile from "./views/Profile/ViewProfile";
 function App() {
   return (
     <div className="App">
@@ -10,6 +11,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile/:id" element={<ViewProfile />} />
       </Routes>
     </div>
   );
