@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import Animation from "../Animation/Animation";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -52,11 +52,7 @@ const Login = () => {
 				localStorage.setItem('userData', JSON.stringify(res.data));
 				navigate('/');
 			}})
-
-			console.log(email, password);
 	}
-
-
 
   return (
 		<div className="login">
@@ -76,6 +72,7 @@ const Login = () => {
 				<div>{errorMessage}</div>
 				<br/><br/>
 				<button type="submit">Login -></button>
+				<div>Don't have an account? <Link to="/register" className='link-style'>Create</Link></div>
 			</form>
 		</div>
 	);

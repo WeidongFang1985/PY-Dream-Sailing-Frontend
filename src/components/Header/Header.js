@@ -6,9 +6,11 @@ import logo from '../../assets/logo.png';
 import {Link} from "react-router-dom";
 import { authToken } from '../../services/authToken';
 import {useEffect, useState} from "react";
+import {getUserData} from "../../services/getUserData";
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const [user, setUser] = useState('');
 
   useEffect(() => {
     const authTokenValidation = async () => {
@@ -24,6 +26,11 @@ const Header = () => {
       }
     };
     authTokenValidation();
+
+    const {username} = getUserData();
+    if(username) {
+      setUser(username.charAt(0));
+    }
   }, []);
 
   const logout = () => {
@@ -40,7 +47,7 @@ const Header = () => {
             <span>Dream Sailing</span>
           </div>
           <ul className="header-container__nav">
-            <li><Link to="/" className="link-style">Home</Link></li>
+            <li><Link to="/" className="link-no-style">Home</Link></li>
             <li>About</li>
             <li>Contact Us</li>
           </ul>
@@ -61,10 +68,12 @@ const Header = () => {
             <li>
               {isLogin ?
                 <div className="header-container__nav-user">
-                  <span>User</span>
+                  <span className="header-container__nav-icon" >
+                    {user}
+                  </span>
                   <span onClick={logout}>Logout</span>
                 </div>
-                : <Link to="/login" className="link-style">Login</Link>
+                : <span><Link to="/login" className="link-no-style">Login</Link></span>
               }</li>
           </ul>
         </div>

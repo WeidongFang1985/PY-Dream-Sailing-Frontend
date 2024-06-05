@@ -2,7 +2,7 @@ import Header from "../../components/Header/Header";
 import './Login.css';
 import Login from "../../components/Login/Login";
 
-const HomePage = () => {
+const ViewLogin = () => {
 
 	return (
 		<div className="view-login">
@@ -15,4 +15,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default ViewLogin;

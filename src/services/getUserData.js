@@ -4,5 +4,5 @@ export const getUserData = () => {
   const config = {
     headers: { Authorization: `Bearer ${userData.token}` },
   };
-  return { id: userData.id, config };
+  return { id: userData.id, username:userData.username, config };
 };
