@@ -7,7 +7,7 @@ const HomePage = () => {
 	return (
 		<div className="view-login">
 			<Header />
-			<div className="main">
+			<div>
 				<Login />
 			</div>
 
