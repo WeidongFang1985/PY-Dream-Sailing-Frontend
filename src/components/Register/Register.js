@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import Animation from "../Animation/Animation";
-import './Register.css';
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
+import individual from '../../assets/individual.png';
+import business from '../../assets/business.png';
 
 const Register = () => {
 	const navigate = useNavigate();
@@ -70,25 +71,26 @@ const Register = () => {
 	}
 
   return (
-		<div className="register">
+		<div className="form-container">
 			<Animation/>
 			<h1>Register</h1>
-			<form onSubmit={register}>
+			<form onSubmit={register} className="form">
 				<fieldset>
 					<label htmlFor="username">Username</label><br/>
-					<input type="text" id="username" value={username} onChange={usernameOnChange}/>
+					<input type="text" id="username" value={username} onChange={usernameOnChange} className="form-input"/>
 				</fieldset>
 				<br/>
 				<fieldset>
 					<label htmlFor="email">Email</label><br/>
-					<input type="email" id="email" value={email} onChange={emailOnChange}/>
+					<input type="email" id="email" value={email} onChange={emailOnChange} className="form-input"/>
 				</fieldset>
 				<br/>
 				<fieldset>
 					<label htmlFor="password">Password</label><br/>
-					<input type="password" id="password" value={password} onChange={passwordOnChange}/>
+					<input type="password" id="password" value={password} onChange={passwordOnChange} className="form-input"/>
 				</fieldset>
-				<fieldset>
+				<br/>
+				<div className="form-business-selection">
 					<label>
 						<input
 							type="radio"
@@ -97,6 +99,7 @@ const Register = () => {
 							checked={!isBusiness}
 							onChange={is_businessOnChange}
 						/>
+						<img src={individual} alt="individual" width={24} className="form-business-selection-icon"/>
 						Individual
 					</label>
 					<label>
@@ -107,13 +110,21 @@ const Register = () => {
 							checked={isBusiness}
 							onChange={is_businessOnChange}
 						/>
+						<img src={business} alt="business" width={24} className="form-business-selection-icon"/>
+
 						Company
 					</label>
-				</fieldset>
-				<div>{errorMessage}</div>
-				<br/><br/>
-				<button type="submit">Register -></button>
-				<div>Already have an account? <Link to="/login" className='link-style'>Login</Link></div>
+				</div>
+				<br/>
+				<div className="form-to-middle error-message">{errorMessage}</div>
+				<br/>
+				<div className="form-to-middle">
+					<button type="submit" className="form-button">Register&nbsp;&nbsp;&nbsp;&nbsp;&#8594;</button>
+				</div>
+				<br/>
+				<div className="form-to-middle">Already have an account? &nbsp;&nbsp;<Link to="/login"
+																																									 className='link-style'>Login</Link>
+				</div>
 			</form>
 		</div>
 	);

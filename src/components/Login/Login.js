@@ -70,24 +70,27 @@ const Login = () => {
 
 
 	return (
-		<div className="login">
+		<div className="form-container">
 			<Animation/>
 			<h1>Login</h1>
-			<form onSubmit={login}>
+			<form onSubmit={login} className="form">
 				<fieldset>
 					<label htmlFor="email">Email</label><br/>
-					<input type="email" id="email" value={email} onChange={emailOnChange}/>
+					<input type="email" id="email" value={email} onChange={emailOnChange} className="form-input"/>
 				</fieldset>
 				<br/>
 				<fieldset>
 					<label htmlFor="password">Password</label><br/>
-					<input type="password" id="password" value={password} onChange={passwordOnChange}/>
+					<input type="password" id="password" value={password} onChange={passwordOnChange} className="form-input"/>
 				</fieldset>
-
-				<div>{errorMessage}</div>
+				<br/>
+				<div className="form-to-middle error-message">{errorMessage}</div>
+				<br/>
+				<div className="form-to-middle">
+					<button type="submit" className="form-button">Login&nbsp;&nbsp;&nbsp;&nbsp;&#8594;</button>
+				</div>
 				<br/><br/>
-				<button type="submit">Login -></button>
-				<div>Don't have an account? <Link to="/register" className='link-style'>Create</Link></div>
+				<div className="form-to-middle">Don't have an account?&nbsp;&nbsp; <Link to="/register" className='link-style'>Create</Link></div>
 			</form>
 		</div>
 	);
