@@ -4,6 +4,9 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import individual from '../../assets/individual.png';
 import business from '../../assets/business.png';
+import emailIcon from "../../assets/email.svg";
+import passwordIcon from "../../assets/locker.svg";
+import usernameIcon from "../../assets/user.svg";
 
 const Register = () => {
 	const navigate = useNavigate();
@@ -76,18 +79,27 @@ const Register = () => {
 			<h1>Register</h1>
 			<form onSubmit={register} className="form">
 				<fieldset>
-					<label htmlFor="username">Username</label><br/>
-					<input type="text" id="username" value={username} onChange={usernameOnChange} className="form-input"/>
+					<label htmlFor="username">Password</label><br/>
+					<div className="form-input">
+						<img src={usernameIcon} alt="username" width={24} className="form-input-img"/>
+						<input type="text" id="username" value={username} onChange={usernameOnChange}/>
+					</div>
 				</fieldset>
 				<br/>
 				<fieldset>
 					<label htmlFor="email">Email</label><br/>
-					<input type="email" id="email" value={email} onChange={emailOnChange} className="form-input"/>
+					<div className="form-input">
+						<img src={emailIcon} alt="email" width={24} className="form-input-img"/>
+						<input type="email" id="email" value={email} onChange={emailOnChange} className="form-input"/>
+					</div>
 				</fieldset>
 				<br/>
 				<fieldset>
 					<label htmlFor="password">Password</label><br/>
-					<input type="password" id="password" value={password} onChange={passwordOnChange} className="form-input"/>
+					<div className="form-input">
+						<img src={passwordIcon} alt="email" width={24} className="form-input-img"/>
+						<input type="password" id="password" value={password} onChange={passwordOnChange}/>
+					</div>
 				</fieldset>
 				<br/>
 				<div className="form-business-selection">
