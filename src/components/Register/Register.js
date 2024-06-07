@@ -7,6 +7,8 @@ import business from '../../assets/business.png';
 import emailIcon from "../../assets/email.svg";
 import passwordIcon from "../../assets/locker.svg";
 import usernameIcon from "../../assets/user.svg";
+import openEyeIcon from "../../assets/openEye.svg";
+import closeEyeIcon from "../../assets/closeEye.svg";
 
 const Register = () => {
 	const navigate = useNavigate();
@@ -15,6 +17,7 @@ const Register = () => {
 	const [password, setPassword ] = useState('');
 	const [isBusiness, setIsBusiness] = useState(false);
 	const [errorMessage, setErrorMessage] = useState(null);
+	const [isHiddenPassword, setIsHiddenPassword] = useState(true);
 
 	const usernameOnChange = (e) => {
 		setErrorMessage('')
@@ -41,6 +44,10 @@ const Register = () => {
 			return e.response;
 		}
 	};
+
+	const hidePassword = () => {
+		setIsHiddenPassword(!isHiddenPassword);
+	}
 
 	const register = (event) => {
 		event.preventDefault();
@@ -79,7 +86,7 @@ const Register = () => {
 			<h1>Register</h1>
 			<form onSubmit={register} className="form">
 				<fieldset>
-					<label htmlFor="username">Password</label><br/>
+					<label htmlFor="username">Username</label><br/>
 					<div className="form-input">
 						<img src={usernameIcon} alt="username" width={24} className="form-input-img"/>
 						<input type="text" id="username" value={username} onChange={usernameOnChange}/>
@@ -98,7 +105,10 @@ const Register = () => {
 					<label htmlFor="password">Password</label><br/>
 					<div className="form-input">
 						<img src={passwordIcon} alt="email" width={24} className="form-input-img"/>
-						<input type="password" id="password" value={password} onChange={passwordOnChange}/>
+						<input type={isHiddenPassword ? "password" : "text"} id="password" value={password}
+									 onChange={passwordOnChange}/>
+						<img src={isHiddenPassword ? openEyeIcon : closeEyeIcon} alt="openEye" width={24} className="from-input-eye"
+								 onClick={hidePassword}/>
 					</div>
 				</fieldset>
 				<br/>

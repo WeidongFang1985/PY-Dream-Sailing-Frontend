@@ -5,12 +5,15 @@ import axios from "axios";
 import {Link, useNavigate} from "react-router-dom";
 import emailIcon from '../../assets/email.svg';
 import passwordIcon from '../../assets/locker.svg';
+import openEyeIcon from '../../assets/openEye.svg';
+import closeEyeIcon from '../../assets/closeEye.svg';
 
 const Login = () => {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState('');
 	const [password, setPassword ] = useState('');
 	const [errorMessage, setErrorMessage] = useState(null);
+	const [isHiddenPassword, setIsHiddenPassword] = useState(true);
 
 	const emailOnChange = (e) => {
 		setErrorMessage('')
@@ -36,6 +39,10 @@ const Login = () => {
 			return e.response;
 		}
 	};
+
+	const hidePassword = () => {
+		setIsHiddenPassword(!isHiddenPassword);
+	}
 
 	const login = (event) => {
 		event.preventDefault();
@@ -70,7 +77,6 @@ const Login = () => {
 		});
 	}
 
-
 	return (
 		<div className="form-container">
 			<Animation/>
@@ -88,7 +94,8 @@ const Login = () => {
 					<label htmlFor="password">Password</label><br/>
 					<div className="form-input">
 						<img src={passwordIcon} alt="email" width={24} className="form-input-img"/>
-						<input type="password" id="password" value={password} onChange={passwordOnChange}/>
+						<input type={isHiddenPassword ? "password" : "text"} id="password" value={password} onChange={passwordOnChange}/>
+						<img src={isHiddenPassword ? openEyeIcon : closeEyeIcon} alt="openEye" width={24} className="from-input-eye" onClick={hidePassword}/>
 					</div>
 				</fieldset>
 				<br/>
