@@ -10,6 +10,13 @@
     width: 90vw;
     height: 100%;
     padding: 0 5vw;
+    /*background-color: #2F879B;*/
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .campaigns {

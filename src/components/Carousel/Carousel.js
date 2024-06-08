@@ -29,6 +29,7 @@ const Carousel = ({ items }) => {
 	const navSlider = useRef(null);
 	const [settingsMain, setSettingsMain] = useState({});
 	const [settingsThumbs, setSettingsThumbs] = useState({});
+	const [activeIndex, setActiveIndex] = useState(0);
 
 	useEffect(() => {
 		setSettingsMain({
@@ -38,7 +39,8 @@ const Carousel = ({ items }) => {
 			fade: true,
 			asNavFor: navSlider.current,
 			nextArrow: <NextArrow />,
-			prevArrow: <PrevArrow />
+			prevArrow: <PrevArrow />,
+			beforeChange: (current, next) => setActiveIndex(next),
 		});
 		setSettingsThumbs({
 			slidesToShow: 6,
@@ -54,31 +56,43 @@ const Carousel = ({ items }) => {
 				{
 					breakpoint: 768,
 					settings: {
-						slidesToShow: 2
-					}
-				}
-			]
+						slidesToShow: 2,
+					},
+				},
+			],
 		});
 	}, []);
+
+	const truncateAtFullWord = (text, limit) => {
+		const boundary = text.lastIndexOf(' ', limit);
+		return boundary === -1 ? text : text.slice(0, boundary);
+	};
 
 	return (
 		<div>
 			<Slider ref={mainSlider} {...settingsMain}>
 				{items.map((item, index) => (
-					<div key={index}>
-						<img src={item.image} alt={item.altText} style={{ width: "40%", height: "auto" }} />
+					<div key={index} className="slider-box">
+						<div className="slider-box__img-box">
+							<img src={item.image} alt={item.altText} />
+						</div>
+						<div className="slider-box__description-box">
+							<h3>{item.title}</h3>
+							<p className="content-limited">
+								{truncateAtFullWord(item.description, 350)}... <span className="read-more">Read More</span>
+							</p>
+						</div>
 					</div>
 				))}
 			</Slider>
-			<div className="thumbnail-slider-wrap">
-				<Slider ref={navSlider} {...settingsThumbs}>
-					{items.map((item, index) => (
-						<div key={index}>
-							<img src={item.image} alt={item.altText} style={{ width: "100%", cursor: "pointer" }} />
-						</div>
-					))}
-				</Slider>
-			</div>
+			<Slider ref={navSlider} {...settingsThumbs}>
+				{items.map((item, index) => (
+					<div key={index} className="thumbnail-slider-box__item" onClick={() => setActiveIndex(index)}>
+						<img src={item.image} alt={item.altText} style={{ width: '100%', cursor: 'pointer' }} />
+						<p style={{ color: activeIndex === index ? 'red' : 'black' }}>{item.title}</p>
+					</div>
+				))}
+			</Slider>
 		</div>
 	);
 };

@@ -47,8 +47,11 @@ const HomePage = () => {
 		<div className="homepage">
 			<Header />
 			<div className="main">
-				<Carousel items={items} />
-				<Campaign />
+				<div className="main-container">
+					<Carousel items={items} />
+					<Campaign />
+				</div>
+
 			</div>
 
 		</div>
