@@ -33,3 +33,8 @@
     display: flex !important;
     gap: 10px !important;
 }
+
+.thumbnail-slider-box__item p {
+    margin-top: 5px;
+    padding: 0 6px;
+}

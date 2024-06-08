@@ -30,6 +30,7 @@ const Carousel = ({ items }) => {
 	const [settingsMain, setSettingsMain] = useState({});
 	const [settingsThumbs, setSettingsThumbs] = useState({});
 	const [activeIndex, setActiveIndex] = useState(0);
+	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
 	useEffect(() => {
 		setSettingsMain({
@@ -61,12 +62,18 @@ const Carousel = ({ items }) => {
 				},
 			],
 		});
+
+		const handleResize = () => setScreenWidth(window.innerWidth);
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
 	}, []);
 
 	const truncateAtFullWord = (text, limit) => {
 		const boundary = text.lastIndexOf(' ', limit);
 		return boundary === -1 ? text : text.slice(0, boundary);
 	};
+
+	const descriptionLimit = screenWidth > 1280 ? 380 : 240;
 
 	return (
 		<div>
@@ -79,7 +86,7 @@ const Carousel = ({ items }) => {
 						<div className="slider-box__description-box">
 							<h3>{item.title}</h3>
 							<p className="content-limited">
-								{truncateAtFullWord(item.description, 350)}... <span className="read-more">Read More</span>
+								{truncateAtFullWord(item.description, descriptionLimit)}... <span className="read-more">Read More</span>
 							</p>
 						</div>
 					</div>
