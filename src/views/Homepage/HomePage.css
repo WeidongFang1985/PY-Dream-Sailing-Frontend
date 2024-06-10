@@ -19,6 +19,21 @@
     gap: 20px;
 }
 
+.main-posts {
+    display: flex;
+    gap: 20px;
+}
+
+.main-posts-campaigns {
+    width: 70%;
+}
+
+.main-posts-companies {
+    width: 30%;
+    border: 1px solid #eeeded;
+    padding-left: 10px;
+}
+
 .campaigns {
     list-style-type: none;
     padding-left: 0;
@@ -93,14 +108,6 @@
     max-height: 200px;
 }
 
-.content-limited {
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .content-full {
     display: block;
 }
@@ -108,4 +115,41 @@
 .read-more {
     text-decoration:underline;
     color: blue;
+}
+
+.slider-box-profile {
+    display: flex;
+    border: 1px solid #E5E5E5;
+    border-bottom: none;
+    border-right: none;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 50px;
+}
+
+.slider-box-profile__user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+    border-right: 1px solid #E5E5E5;
+    padding-left: 10px;
+}
+
+.slider-box-profile__participant {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+    padding-left: 10px;
+}
+
+.slider-box-profile__participant-number {
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-box-profile__participant-number :first-child {
+    font-family: Outfit, serif;
 }

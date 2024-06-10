@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import './Carousel.css';
+import group from '../../assets/group.png';
 
 const PrevArrow = (props) => {
 	const { className, onClick } = props;
@@ -73,7 +74,7 @@ const Carousel = ({ items }) => {
 		return boundary === -1 ? text : text.slice(0, boundary);
 	};
 
-	const descriptionLimit = screenWidth > 1280 ? 380 : 240;
+	const descriptionLimit = screenWidth > 1280 ? 360 : 220;
 
 	return (
 		<div>
@@ -81,13 +82,26 @@ const Carousel = ({ items }) => {
 				{items.map((item, index) => (
 					<div key={index} className="slider-box">
 						<div className="slider-box__img-box">
-							<img src={item.image} alt={item.altText} />
+							<img src={item.image} alt={item.altText} className="slider-box__img-box-img"/>
 						</div>
 						<div className="slider-box__description-box">
-							<h3>{item.title}</h3>
-							<p className="content-limited">
+							<h3 className="slider-box__description-box-title">{item.title}</h3>
+							<p className="slider-box__description-box-description">
 								{truncateAtFullWord(item.description, descriptionLimit)}... <span className="read-more">Read More</span>
 							</p>
+							<div className="slider-box-profile">
+								<div className="slider-box-profile__user">
+									<img src={item.avatar} alt="User avatar" className="campaigns-item__content-userAvatar"/>
+									<span>{item.username}</span>
+								</div>
+								<div className="slider-box-profile__participant">
+									<img src={group} alt="Group avatar" className="campaigns-item__content-userAvatar"/>
+									<div className="slider-box-profile__participant-number">
+										<span><strong>{item.participants}</strong></span>
+										<span>Participants</span>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				))}
@@ -95,8 +109,8 @@ const Carousel = ({ items }) => {
 			<Slider ref={navSlider} {...settingsThumbs}>
 				{items.map((item, index) => (
 					<div key={index} className="thumbnail-slider-box__item" onClick={() => setActiveIndex(index)}>
-						<img src={item.image} alt={item.altText} style={{ width: '100%', cursor: 'pointer' }} />
-						<p style={{ color: activeIndex === index ? 'red' : 'black' }}>{item.title}</p>
+						<img src={item.image} alt={item.altText} style={{width: '100%', cursor: 'pointer'}}/>
+						<p style={{color: activeIndex === index ? 'red' : 'black'}}>{item.title}</p>
 					</div>
 				))}
 			</Slider>
