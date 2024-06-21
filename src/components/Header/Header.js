@@ -42,6 +42,15 @@ const Header = () => {
     navigate('/');
   }
 
+  // const postCampaign = () => {
+  //   if(isLogin) {
+  //     navigate('/post');
+  //   }
+  //   else {
+  //     navigate('/login')
+  //   }
+  // }
+
   return (
     <div className="header">
       <div className="header-container">
@@ -68,7 +77,8 @@ const Header = () => {
             {/*  <img src={user} alt="user" height={16}/>*/}
             {/*</li>*/}
             <li>
-              <span>Post a Campaign</span></li>
+              <Link to={'/post'} className="link-no-style">Post a Campaign</Link>
+            </li>
             <li>
               {isLogin ?
                 <div className="header-container__nav-user">

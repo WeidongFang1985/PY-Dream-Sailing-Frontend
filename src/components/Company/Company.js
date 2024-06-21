@@ -19,7 +19,6 @@ const Company = () => {
     fetchCompanies();
   }, []);
 
-  console.log(companies)
   return (
     <div className="company">
       <h3>Sponsors</h3>

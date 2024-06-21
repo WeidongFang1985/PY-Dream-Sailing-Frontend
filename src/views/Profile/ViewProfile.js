@@ -3,17 +3,18 @@ import './ViewProfile.css';
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { getUserData } from "../../services/getUserData"; // 确保这个函数是获取配置信息，而不是状态
+import { getUserData } from "../../services/getUserData";
 
 const ViewProfile = () => {
 	const [userData, setUserData] = useState(null);
 	const { id } = useParams();
 
-	const getUser = () => {
-		return axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/users/${id}`, getUserData().config);
-	};
+
 
 	useEffect(() => {
+		const getUser = () => {
+			return axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/users/${id}`, getUserData().config);
+		};
 		const fetchUserData = async () => {
 			try {
 				const response = await getUser();
@@ -22,15 +23,8 @@ const ViewProfile = () => {
 				console.error('Failed to fetch user data:', error.message);
 			}
 		};
-
 		fetchUserData();
-	});
-
-	useEffect(() => {
-		if (userData) {
-			console.log(userData);
-		}
-	}, [userData]);
+	},[id]);
 
 	const getApprovalStatus = (status) => {
 		switch (status) {
