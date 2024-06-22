@@ -1,8 +1,7 @@
-// eslint-disable-next-line import/prefer-default-export
 export const getUserData = () => {
   const userData = JSON.parse(localStorage.getItem('userData') || '{}');
   const config = {
     headers: { Authorization: `Bearer ${userData.token}` },
   };
-  return { id: userData.id, username:userData.username, config };
+  return { id: userData.id, username:userData.username,is_business:userData.is_business, config };
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './Login.css';
 import Animation from "../Animation/Animation";
 import axios from "axios";
@@ -9,7 +9,14 @@ import openEyeIcon from '../../assets/openEye.svg';
 import closeEyeIcon from '../../assets/closeEye.svg';
 
 const Login = () => {
+	const currentUser = JSON.parse(localStorage.getItem('userData'));
 	const navigate = useNavigate();
+	useEffect(() => {
+		if (currentUser) {
+			navigate('/');
+		}
+	});
+
 	const [email, setEmail] = useState('');
 	const [password, setPassword ] = useState('');
 	const [errorMessage, setErrorMessage] = useState(null);

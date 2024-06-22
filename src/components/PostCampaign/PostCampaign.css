@@ -1,0 +1,133 @@
+.post-campaign {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.badge-container {
+    position: absolute;
+    right: 0;
+}
+
+.badge-container__badge {
+    height: 60px;
+}
+
+.badge-container__business {
+    position: absolute;
+    width: 20px;
+    right: 20px;
+    top: 28px;
+}
+
+.post-campaign__title {
+    margin: 40px 0 0 0;
+}
+
+.post-campaign__content {
+    resize: none;
+    border: 2px solid #1C859E;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Outfit, serif;
+}
+
+.post-campaign__input {
+    border: 2px solid #1C859E;
+    border-radius: 8px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    font-family: Outfit, serif;
+}
+
+.post-campaign__input,.post-campaign__content:focus {
+    outline: none;
+}
+
+.post-campaign__upload {
+    height: 25vh;
+}
+
+.post-campaign__upload:hover {
+    cursor: pointer;
+}
+
+.image-container {
+    display: flex;
+    gap: 20px;
+}
+
+.uploadImgBox {
+    position: relative;
+}
+
+.post-campaign__uploadImg {
+    height: 25vh;
+}
+
+.closeIconWrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 15px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: #cccbcb;
+}
+
+.closeIcon {
+    width: 20px;
+}
+
+.closeIconWrapper:hover {
+    cursor: pointer;
+}
+
+.post-campaign__submit-container {
+    display: flex;
+    justify-content: right;
+    align-items: end;
+    gap: 20px;
+}
+
+.post-campaign__selectBtn {
+    height: 30px;
+}
+
+.post-campaign__selectBtn:focus {
+    outline: none;
+}
+
+.post-campaign__submitBtn {
+    color: white;
+    padding: 14px 24px;
+    margin-right: 20px;
+    background-color: #1C859E;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+@media (max-height: 700px) {
+    .post-campaign__title {
+        font-size: 24px;
+        margin: 20px 0 0 0;
+    }
+    .post-campaign__content {
+        height: 80px;
+    }
+    .post-campaign {
+        gap: 15px;
+    }
+    .post-campaign__upload, .post-campaign__uploadImg {
+        height: 18vh;
+    }
+}

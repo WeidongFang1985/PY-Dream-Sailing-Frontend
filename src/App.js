@@ -4,7 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import Login from "./views/Login/Login";
 import Register from "./views/Register/Register";
 import ViewProfile from "./views/Profile/ViewProfile";
-import PostCampaign from "./views/PostCampaign/PostCampaign";
+import ViewPostCampaign from "./views/PostCampaign/ViewPostCampaign";
 function App() {
   return (
     <div className="App">
@@ -13,7 +13,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile/:id" element={<ViewProfile />} />
-        <Route path="/post" element={<PostCampaign />} />
+        <Route path="/post" element={<ViewPostCampaign />} />
       </Routes>
     </div>
   );

@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import Header from "../../components/Header/Header";
 import {useNavigate} from "react-router-dom";
+import PostCampaign from "../../components/PostCampaign/PostCampaign";
 
-const PostCampaign = () => {
+const ViewPostCampaign = () => {
 	const currentUser = JSON.parse(localStorage.getItem('userData'));
 	const navigate = useNavigate();
 	useEffect(() => {
@@ -14,10 +15,12 @@ const PostCampaign = () => {
   return (
     <div>
       <Header />
-			Post a campaign here<br/>
+			<div className="main">
+				<PostCampaign />
+			</div>
 			{/*{author}*/}
     </div>
   );
 };
 
-export default PostCampaign;
+export default ViewPostCampaign;
