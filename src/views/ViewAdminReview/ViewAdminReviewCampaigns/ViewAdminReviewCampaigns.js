@@ -4,6 +4,8 @@ import { getAllCampaigns } from "../../../services/getAllCampaigns";
 
 const ViewAdminReviewCampaigns = () => {
 	const [campaigns, setCampaigns] = useState([]);
+	const [selectedCampaignId, setSelectedCampaignId] = useState(null);
+
 	console.log(campaigns);
 
 	useEffect(() => {
@@ -35,6 +37,11 @@ const ViewAdminReviewCampaigns = () => {
 		return title;
 	}
 
+	const handleCheckboxChange = (id) => {
+		setSelectedCampaignId(id);
+		console.log(id)
+	}
+
 	return (
 		<div>
 			<h1 className="review-campaign-title">Campaigns</h1>
@@ -51,7 +58,17 @@ const ViewAdminReviewCampaigns = () => {
 				<tbody>
 				{campaigns.map((campaign) => (
 					<tr key={campaign._id}>
-						<td>{truncateTitle(campaign.title)}</td>
+						<td className="review-campaign-title-box">
+							<input
+							type="radio"
+							name="selectCampaign"
+							value={selectedCampaignId === campaign._id}
+							onChange={() => handleCheckboxChange(campaign._id)}
+						/>
+							<span>
+								{truncateTitle(campaign.title)}
+							</span>
+							</td>
 						<td>{campaign.category}</td>
 						<td>{campaign.author.username}</td>
 						<td>{formatDate(campaign.created_at)}</td>
