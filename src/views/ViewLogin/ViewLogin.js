@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header";
-import './Login.css';
+import './ViewLogin.css';
 import Login from "../../components/Login/Login";
 
 const ViewLogin = () => {

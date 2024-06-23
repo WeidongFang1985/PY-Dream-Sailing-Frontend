@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header";
-import './Register.css';
+import './ViewRegister.css';
 import Register from "../../components/Register/Register";
 
 const ViewRegister = () => {

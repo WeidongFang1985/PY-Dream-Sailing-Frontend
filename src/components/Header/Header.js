@@ -1,8 +1,5 @@
 import './Header.css';
 import logo from '../../assets/logo.png';
-// import night from '../../assets/night.png';
-// import edit from '../../assets/edit.png';
-// import user from '../../assets/user.png';
 import {Link, useNavigate} from "react-router-dom";
 import { authToken } from '../../services/authToken';
 import {useEffect, useState} from "react";
@@ -37,19 +34,10 @@ const Header = () => {
   }, []);
 
   const logout = () => {
-    localStorage.clear();
+    localStorage.removeItem('userData');
     setIsLogin(false);
     navigate('/');
   }
-
-  // const postCampaign = () => {
-  //   if(isLogin) {
-  //     navigate('/post');
-  //   }
-  //   else {
-  //     navigate('/login')
-  //   }
-  // }
 
   return (
     <div className="header">
@@ -67,15 +55,6 @@ const Header = () => {
         </div>
         <div className="header-container__operations">
           <ul className="header-container__nav2">
-            {/*<li className="header-container__nav-icon">*/}
-            {/*  <img src={night} alt="night" height={16}/>*/}
-            {/*</li>*/}
-            {/*<li className="header-container__nav-icon" >*/}
-            {/*  <img src={edit} alt="edit" height={16}/>*/}
-            {/*</li>*/}
-            {/*<li className="header-container__nav-icon">*/}
-            {/*  <img src={user} alt="user" height={16}/>*/}
-            {/*</li>*/}
             <li>
               <Link to={'/post'} className="link-no-style">Post a Campaign</Link>
             </li>

@@ -1,10 +1,10 @@
 import Header from "../../components/Header/Header";
 import Campaign from "../../components/Campaign/Campaign";
-import './HomePage.css';
+import './ViewHomepage.css';
 import Carousel from "../../components/Carousel/Carousel";
 import Company from "../../components/Company/Company";
 
-const HomePage = () => {
+const ViewHomepage = () => {
 	const items = [
 		{
 			image: "https://py-uploadimages.s3.ap-southeast-2.amazonaws.com/15.webp",
@@ -85,4 +85,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default ViewHomepage;

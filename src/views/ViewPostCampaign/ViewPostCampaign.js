@@ -18,7 +18,6 @@ const ViewPostCampaign = () => {
 			<div className="main">
 				<PostCampaign />
 			</div>
-			{/*{author}*/}
     </div>
   );
 };
