@@ -77,7 +77,7 @@ const Carousel = ({ items }) => {
 	const descriptionLimit = screenWidth > 1280 ? 360 : 220;
 
 	return (
-		<div>
+		<div className="carousel">
 			<Slider ref={mainSlider} {...settingsMain}>
 				{items.map((item, index) => (
 					<div key={index} className="slider-box">

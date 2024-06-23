@@ -7,7 +7,7 @@ const ViewLogin = () => {
 	return (
 		<div className="view-login">
 			<Header />
-			<div>
+			<div className="login">
 				<Login />
 			</div>
 

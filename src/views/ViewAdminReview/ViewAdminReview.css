@@ -63,3 +63,19 @@
     background-color: white;
     padding: 10px;
 }
+
+@media (max-width: 500px) {
+    .review-content__sideBar,
+    .header-container__nav,
+    .header-container__adminNav,
+    .header-container__operations
+    {
+        display: none;
+    }
+    .review-content__main-campaign h1,
+    .campaign-table
+    {
+        margin-left: 100px;
+    }
+
+}

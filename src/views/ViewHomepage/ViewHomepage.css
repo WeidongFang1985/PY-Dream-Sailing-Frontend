@@ -10,7 +10,6 @@
     width: 90vw;
     height: 100%;
     padding: 0 5vw;
-    /*background-color: #2F879B;*/
 }
 
 .main-container {
@@ -152,4 +151,20 @@
 
 .slider-box-profile__participant-number :first-child {
     font-family: Outfit, serif;
+}
+
+@media (max-width: 500px) {
+    .carousel,
+    .campaigns-item__content-user,
+    .main-posts-companies,
+    .header-container__nav {
+        display: none;
+    }
+    .main-posts-campaigns {
+        width: 100%;
+    }
+    .campaigns-item__content {
+        display: flex;
+        flex-direction: column;
+    }
 }
