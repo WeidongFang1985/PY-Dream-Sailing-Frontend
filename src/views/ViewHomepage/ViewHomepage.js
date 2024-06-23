@@ -3,6 +3,7 @@ import Campaign from "../../components/Campaign/Campaign";
 import './ViewHomepage.css';
 import Carousel from "../../components/Carousel/Carousel";
 import Company from "../../components/Company/Company";
+import BackToTopButton from "../../components/BackToTopButton/BackToTopButton";
 
 const ViewHomepage = () => {
 	const items = [
@@ -64,6 +65,7 @@ const ViewHomepage = () => {
 
 	return (
 		<div className="homepage">
+			<BackToTopButton />
 			<Header />
 			<div className="main">
 				<div className="main-container">

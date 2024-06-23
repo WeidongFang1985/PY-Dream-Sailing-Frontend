@@ -1,0 +1,32 @@
+.back-to-top-button {
+    position: fixed;
+    top: 80%;
+    right: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1000;
+    background-color: #2F879B;
+    color: white;
+}
+
+.back-to-top-button img {
+    width: 30px;
+}
+
+.back-to-top-button:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+    .back-to-top-button {
+        right: 20vw;
+    }
+}
