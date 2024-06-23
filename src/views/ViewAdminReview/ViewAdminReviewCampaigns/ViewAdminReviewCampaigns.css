@@ -1,0 +1,29 @@
+.review-campaign-title {
+    font-size: 20px;
+}
+
+.campaign-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.campaign-table th,
+.campaign-table td {
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    padding: 8px;
+}
+
+.campaign-table thead th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #8B8B8B;
+}
+
+.campaign-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.campaign-table tbody tr:last-child td {
+    border-bottom: none;
+}
