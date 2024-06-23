@@ -27,9 +27,6 @@ const ViewAdminReview = () => {
 					<div className="review-content__main-campaign">
 						<ViewAdminReviewCampaigns />
 					</div>
-					<div className="review-content__main-statistics">
-
-					</div>
 				</div>
 			</div>
 		</div>

@@ -74,7 +74,7 @@
 }
 
 @media (min-width: 1180px) {
-    .header-container__nav {
+    .header-container__adminNav {
         margin-left: 200px;
     }
 }

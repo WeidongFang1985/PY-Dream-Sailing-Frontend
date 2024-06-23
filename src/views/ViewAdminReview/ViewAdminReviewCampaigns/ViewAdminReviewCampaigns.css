@@ -1,3 +1,27 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Ensure it's on top of other content */
+}
+
+.modal-content {
+    width: 600px;
+    max-height: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 3;
+    position: relative;
+}
+
 .review-campaign-title {
     font-size: 20px;
 }
@@ -16,7 +40,7 @@
 .campaign-table td {
     border-bottom: 1px solid #ccc;
     text-align: left;
-    padding: 8px;
+    padding: 10px;
 }
 
 .campaign-table thead th {
@@ -31,4 +55,36 @@
 
 .campaign-table tbody tr:last-child td {
     border-bottom: none;
+}
+
+.review-campaign-selected:hover {
+    cursor: pointer;
+}
+
+.review-campaign-operation {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: end;
+    margin-right: 100px;
+}
+
+.review-campaign-operation-item {
+    padding: 8px 18px;
+    background-color: #74c3d5;
+    color: white;
+    border-radius: 6px;
+}
+
+.review-campaign-operation-decline {
+    background-color: #f88f8f;
+}
+
+.review-campaign-operation-item:hover {
+    cursor: pointer;
+    background-color: #2F879B;
+}
+
+.review-campaign-operation-decline:hover {
+    background-color: #f64747;
 }

@@ -1,6 +1,5 @@
 .review-content {
     height: 80vh;
-    border: 1px solid #acaeb0;
     margin-top: 40px;
     display: flex;
 }
@@ -51,24 +50,16 @@
 
 .review-content__main {
     background-color: #F3F1F1;
-    width: 75%;
+    width: 85%;
     padding: 40px;
     display: flex;
     gap: 40px;
 }
 
 .review-content__main-campaign {
-    width: 70%;
+    width: 100%;
     border-radius: 10px;
     border: 1px solid #00000040;
     background-color: white;
-    padding: 20px;
-}
-
-.review-content__main-statistics {
-    width: 30%;
-    border-radius: 10px;
-    border: 1px solid #00000040;
-    background-color: white;
-    padding: 20px;
+    padding: 10px;
 }

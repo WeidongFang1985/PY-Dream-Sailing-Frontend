@@ -4,8 +4,16 @@ import logo from "../../../assets/logo.png";
 import search from '../../../assets/search.svg';
 import email from '../../../assets/mail.png';
 import user from '../../../assets/userIcon.png';
+import {useNavigate} from "react-router-dom";
 
 const ViewAdminReviewHeader = () => {
+	const navigate = useNavigate();
+
+	const logout = () => {
+		localStorage.removeItem('adminData');
+		navigate('/');
+	}
+	
   return (
     <div className="review-header">
 			<div className="review-header__container">
@@ -14,7 +22,7 @@ const ViewAdminReviewHeader = () => {
 						<img src={logo} alt="logo" height="72"/>
 						<span>Dream Sailing</span>
 					</div>
-					<ul className="header-container__nav">
+					<ul className="header-container__nav header-container__adminNav">
 						<li className="review-header__nav">
 							<img src={search} alt="search" className="review-header__nav-searchIcon"/>
 							<input type="text" placeholder="Search" className="review-header__nav-search"/>
@@ -31,7 +39,7 @@ const ViewAdminReviewHeader = () => {
 						</li>
 						<li className="review-header__nav2-user">
 							<img src={user} alt="user" className="review-header__nav2-userIcon"/>
-							<span>Administrator</span>
+							<span onClick={logout}>Administrator</span>
 						</li>
 					</ul>
 				</div>
