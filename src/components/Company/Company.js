@@ -5,6 +5,7 @@ import {getAllCompanies} from "../../services/getAllCompanies";
 
 const Company = () => {
   const [companies, setCompanies] = useState([]);
+  console.log(companies)
 
   useEffect(() => {
     const fetchCompanies = async () => {
@@ -23,11 +24,16 @@ const Company = () => {
     <div className="company">
       <h3>Sponsors</h3>
       {companies.length > 0 ? (
-        <ul className="campaigns">
+        <ul className="companies">
           {companies.map(company => (
-            <li key={company._id} >
-              <img src={company.photo} alt="companyPhoto" width={40}/>
+            <li key={company._id} className="companies-item">
+              <div className="companies-title">
+                <img src={company.photo} alt="companyPhoto"/>
+                <h4>{company.company_name}</h4>
+              </div>
+              <p>{company.service}</p>
             </li>
+
           ))}
         </ul>
       ) : (
