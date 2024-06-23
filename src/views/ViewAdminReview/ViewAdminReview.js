@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllCampaigns } from "../../services/getAllCampaigns";
 import ViewAdminReviewHeader from "./ViewAdminReviewHeader/ViewAdminReviewHeader";
 import './ViewAdminReview.css';
-import ViewAdminSidebar from "./ViewAdminReviewHeader/ViewAdminSidebar/ViewAdminSidebar";
+import ViewAdminSidebar from "./ViewAdminSidebar/ViewAdminSidebar";
 
 const ViewAdminReview = () => {
 	const navigate = useNavigate();
@@ -32,7 +32,6 @@ const ViewAdminReview = () => {
 		fetchCampaigns();
 	}, []);
 
-
 	return (
 		<div>
 			<ViewAdminReviewHeader />
@@ -42,7 +41,12 @@ const ViewAdminReview = () => {
 				</div>
 
 				<div className="review-content__main">
-					111
+					<div className="review-content__main-campaign">
+						111
+					</div>
+					<div className="review-content__main-statistics">
+
+					</div>
 				</div>
 			</div>
 		</div>
