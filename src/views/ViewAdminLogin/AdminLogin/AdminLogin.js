@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Animation from "../../../components/Animation/Animation";
 import './AdminLogin.css';
 import userIcon from "../../../assets/user.svg";
@@ -14,6 +14,12 @@ const AdminLogin = () => {
 	const [password, setPassword ] = useState('');
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [isHiddenPassword, setIsHiddenPassword] = useState(true);
+	const currentAdmin = JSON.parse(localStorage.getItem('adminData'));
+	useEffect(() => {
+		if (currentAdmin) {
+			navigate('/review');
+		}
+	});
 
 	const hidePassword = () => {
 		setIsHiddenPassword(!isHiddenPassword);
