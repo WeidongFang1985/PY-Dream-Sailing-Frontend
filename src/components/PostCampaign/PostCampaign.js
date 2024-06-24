@@ -54,8 +54,8 @@ const PostCampaign = () => {
 			return;
 		}
 
-		if (file.size > 10485760) {
-			alert('File size must be less than 10MB');
+		if (file.size > 5242880) {
+			alert('File size must be less than 5MB');
 			return;
 		}
 
