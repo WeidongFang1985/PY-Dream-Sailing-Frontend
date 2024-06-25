@@ -4,6 +4,7 @@ import {Link, useNavigate} from "react-router-dom";
 import { authToken } from '../../services/authToken';
 import {useEffect, useState} from "react";
 import {getUserData} from "../../services/getUserData";
+import hamburger from '../../assets/hamburger.svg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const Header = () => {
       <div className="header-container">
         <div className="header-container__logo-nav">
           <div className="header-container__logo">
-            <img src={logo} alt="logo" height="72"/>
+            <img src={logo} alt="logo" height="72" className="header-container__logoIcon"/>
             <span>Dream Sailing</span>
           </div>
           <ul className="header-container__nav">
@@ -65,9 +66,9 @@ const Header = () => {
                   <span className="header-container__nav-icon">
                     {user}
                   </span>
-                </Link>
+                  </Link>
 
-                <span onClick={logout}>Logout</span>
+                  <span onClick={logout}>Logout</span>
                 </div>
                 : <span><Link to="/login" className="link-no-style">Login</Link></span>
               }</li>
