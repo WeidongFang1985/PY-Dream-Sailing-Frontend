@@ -145,6 +145,8 @@ const PostCampaign = () => {
 					<option value="Council">Council</option>
 					<option value="Legislation">Legislation</option>
 					<option value="University">University</option>
+					<option value="Environment">Environment</option>
+					<option value="Education">Education</option>
 				</select>
 				<span onClick={onSubmit} className="post-campaign__submitBtn" >Submit</span>
 			</div>
