@@ -116,6 +116,10 @@
     font-weight: 700;
 }
 
+.post-campaign__submitBtn:hover {
+    cursor: pointer;
+}
+
 @media (max-height: 700px) {
     .post-campaign__title {
         font-size: 24px;

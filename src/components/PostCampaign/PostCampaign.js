@@ -1,21 +1,22 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './PostCampaign.css';
 import cross from '../../assets/cross.svg';
 import loading_icon from '../../assets/loading.svg';
-import {getUserData} from "../../services/getUserData";
+import { getUserData } from "../../services/getUserData";
 import axios from "axios";
 import cancel from "../../assets/cancel.svg";
 import badge from "../../assets/badge.png";
 import business from "../../assets/business.png";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const PostCampaign = () => {
 	const [isUpLoading, setIsUpLoading] = useState(false);
 	const [file_url, setFile_Url] = useState('');
-	const [title, setTitle] = useState('')
+	const [title, setTitle] = useState('');
 	const [content, setContent] = useState('');
 	const [category, setCategory] = useState('null');
 	const [errorMessage, setErrorMessage] = useState('');
+	const [isSubmitting, setIsSubmitting] = useState(false);
 	const navigate = useNavigate();
 
 	const is_business = getUserData().is_business;
@@ -75,44 +76,51 @@ const PostCampaign = () => {
 		resetFileInput();
 	};
 
-	const currentUser = {author, title, content, photo:file_url, category, is_approved}
-
 	const onSubmit = async () => {
+		if (isSubmitting) return;
+
+		setIsSubmitting(true);
 		try {
-			if(title === '') {
+			if (title === '') {
 				setErrorMessage('Title is required!')
-				return
+				setIsSubmitting(false);
+				return;
 			}
-			if(content === '') {
+			if (content === '') {
 				setErrorMessage('Content is required!')
-				return
+				setIsSubmitting(false);
+				return;
 			}
-			if(!file_url) {
+			if (!file_url) {
 				setErrorMessage('Image is required!');
-				return
+				setIsSubmitting(false);
+				return;
 			}
-			if(category === 'null') {
+			if (category === 'null') {
 				setErrorMessage('Please choose a category!')
-				return
+				setIsSubmitting(false);
+				return;
 			}
-			const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/campaigns`, currentUser, getUserData().config,);
+			const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/campaigns`, { author, title, content, photo: file_url, category, is_approved }, getUserData().config);
 			if (response.status === 201) {
 				navigate(`/profile/${author}`);
 			}
 		} catch (e) {
-			console.error('Error in post campaign:', e)
+			console.error('Error in post campaign:', e);
+		} finally {
+			setIsSubmitting(false);
 		}
 	}
 
-  return (
+	return (
 		<div className="post-campaign">
 			{is_business ? <div className="badge-container">
-				<img src={badge} alt="badge" className="badge-container__badge"/>
-				<img src={business} alt="business" className="badge-container__business"/>
-			</div>:null}
+				<img src={badge} alt="badge" className="badge-container__badge" />
+				<img src={business} alt="business" className="badge-container__business" />
+			</div> : null}
 			<h1 className="post-campaign__title">Quick post</h1>
-			<input placeholder="Add a title" className="post-campaign__input" onChange={handleTitleChange} value={title}/>
-			<textarea placeholder="Got an idea for a Social Campaign? Share it here!" rows="10" className="post-campaign__content" onChange={handleContentChange} value={content}/>
+			<input placeholder="Add a title" className="post-campaign__input" onChange={handleTitleChange} value={title} />
+			<textarea placeholder="Got an idea for a Social Campaign? Share it here!" rows="10" className="post-campaign__content" onChange={handleContentChange} value={content} />
 			<input
 				id="imageInput"
 				type="file"
@@ -133,7 +141,7 @@ const PostCampaign = () => {
 					<img className="loading_icon" src={loading_icon} alt="loading_icon" />
 				)}
 				<label htmlFor="imageInput" className="post-campaign__upload">
-					<img src={cross} alt="cross" className="post-campaign__upload"/>
+					<img src={cross} alt="cross" className="post-campaign__upload" />
 				</label>
 			</div>
 			{errorMessage && <div className="error">{errorMessage}</div>}
@@ -148,7 +156,7 @@ const PostCampaign = () => {
 					<option value="Environment">Environment</option>
 					<option value="Education">Education</option>
 				</select>
-				<span onClick={onSubmit} className="post-campaign__submitBtn" >Submit</span>
+				<span onClick={onSubmit} className="post-campaign__submitBtn">Submit</span>
 			</div>
 		</div>
 	);

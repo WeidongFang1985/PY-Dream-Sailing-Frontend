@@ -53,11 +53,12 @@ const Header = () => {
             <li>About</li>
             <li>Contact Us</li>
           </ul>
+          <img src={hamburger} alt="hamburger icon" className="header-container__icon" />
         </div>
         <div className="header-container__operations">
           <ul className="header-container__nav2">
             <li>
-              <Link to={'/post'} className="link-no-style">Post a Campaign</Link>
+              <Link to={'/post'} className="link-no-style header-container__nav2-post">Post a Campaign</Link>
             </li>
             <li>
               {isLogin ?

@@ -19,6 +19,10 @@
 
 .header-container__logo-nav {
     display: flex;
+    @media (max-width: 500px) {
+        width: 100%;
+        justify-content: space-between;
+    }
 }
 
 .header-container__logo {
@@ -69,13 +73,17 @@
     font-weight: 700;
 }
 
-.header-container__nav2 span {
+.header-container__nav2 span, .header-container__nav2-post  {
     transition: color 0.3s ease;
     cursor: pointer;
     font-family: Inter, serif;
 }
 
 .header-container__nav2 span:hover {
+    color: #2F879B;
+}
+
+.header-container__nav2-post:hover {
     color: #2F879B;
 }
 
@@ -101,6 +109,14 @@
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.header-container__icon {
+    display: none;
+    @media (max-width: 500px) {
+        display: flex;
+        width: 40px;
+    }
 }
 
 @media (min-width: 1280px) {
