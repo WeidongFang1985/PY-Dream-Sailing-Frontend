@@ -8,6 +8,9 @@
     right:-50%;
     top: 72px;
     z-index:-1;
+    @media (max-width: 500px) {
+        top: 60px;
+    }
 }
 
 .animation_bg2 {
