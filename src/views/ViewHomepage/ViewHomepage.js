@@ -14,7 +14,7 @@ const ViewHomepage = () => {
 			description: "Australia is renowned as a nation of pet lovers, yet our furry friends face limitations when it comes to traveling on public transport or domestic airlines. Despite 69% of households owning pets, many states and territories prohibit pets on transport, causing distress to pets and owners alike.We urge transport operators and ministers to update regulations and allow pets on transport, promoting inclusivity and supporting pet owners. Other regions, like the United States and Europe, permit pets on public transport under specific conditions, setting a precedent for Australia to follow.Allowing pets on transport offers numerous benefits, including improving pet health and well-being, reducing reliance on cars, supporting return-to-office initiatives, boosting the economy, and enhancing mental health benefits associated with pet companionship.We propose implementing specific guidelines to address concerns, such as designated pet areas, carrier requirements, and online training resources for pet owners. By legislating uniform regulations nationwide, we ensure consistency and ease of compliance.Join us in supporting transport operators and state Transport Ministers to allow pets on transport. Sign the petition and share #petsontransport to show your support and help make this change a reality.",
 			avatar:"https://py-uploadimages.s3.ap-southeast-2.amazonaws.com/Ali88.png",
 			username:"Ali88",
-			participants:"1,350"
+			participants:"1,352"
 		},
 		{
 			image: "https://py-uploadimages.s3.ap-southeast-2.amazonaws.com/13.jpeg",
