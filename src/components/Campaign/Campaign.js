@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getAllCampaigns } from "../../services/getAllCampaigns";
 import hot from '../../assets/hot.png';
 import business from '../../assets/business.png';
+import loading from '../../assets/loading.svg';
 
 const Campaign = () => {
   const [campaigns, setCampaigns] = useState([]);
@@ -60,7 +61,7 @@ const Campaign = () => {
             ))}
           </ul>
         ) : (
-          <p>No campaigns available.</p>
+          <img src={loading} alt="loading" width={40}/>
         )}
       </div>
     </div>

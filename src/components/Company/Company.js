@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './Company.css';
 import {getAllCompanies} from "../../services/getAllCompanies";
+import loading from "../../assets/loading.svg";
 
 
 const Company = () => {
   const [companies, setCompanies] = useState([]);
-  console.log(companies)
 
   useEffect(() => {
     const fetchCompanies = async () => {
@@ -37,7 +37,7 @@ const Company = () => {
           ))}
         </ul>
       ) : (
-        <p>No campaigns available.</p>
+        <img src={loading} alt="loading" width={40}/>
       )}
     </div>
   );
