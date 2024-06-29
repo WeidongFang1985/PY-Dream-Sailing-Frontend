@@ -1,49 +1,62 @@
-import React, {useEffect, useState} from 'react';
-import {Link, useNavigate} from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from "react-router-dom";
 import './Menu.css';
+import cancel from '../../../assets/cancel.svg';
 
-const Menu = () => {
+const Menu = ({ onMenuClick }) => { // 添加一个参数来处理点击事件
 	const currentUser = JSON.parse(localStorage.getItem('userData'));
 	const navigate = useNavigate();
+	const location = useLocation(); // 获取当前的路由路径
 	const [isLogin, setIsLogin] = useState(false);
 
 	useEffect(() => {
-		if(currentUser) {
-			setIsLogin(true);
-		}
+		setIsLogin(!!currentUser);
 	}, [currentUser]);
 
-  return (
-    <div>
-			{isLogin ?
+	const handleMenuClick = (targetPath) => {
+		if (location.pathname === targetPath) {
+			onMenuClick && onMenuClick();
+		} else {
+			navigate(targetPath);
+			onMenuClick && onMenuClick();
+		}
+	};
+
+	return (
+		<div>
+			<div className="header-menu-cancelBox">
+				<img src={cancel} alt="cancel" className="header-menu-cancelIcon" onClick={onMenuClick}/>
+			</div>
+			{isLogin ? (
 				<ul className="header-menu-items">
 					<li>
-						<Link to={'/post'} className="link-no-style header-container__nav2-post">Post a Campaign</Link>
+						<span onClick={() => handleMenuClick('/post')} className="link-no-style header-container__nav2-post">Post a Campaign</span>
 					</li>
 					<li>
 						{currentUser && (
-							<Link to={`/profile/${currentUser.id}`} className="link-no-style header-container__nav2-post">
+							<span onClick={() => handleMenuClick(`/profile/${currentUser.id}`)} className="link-no-style header-container__nav2-post">
 								Review
-							</Link>
+							</span>
 						)}
 					</li>
 					<li>
-						<span onClick={()=>{
-							localStorage.removeItem('userData');
-							setIsLogin(false);
-							navigate('/');
-						}} className="link-no-style header-container__nav2-post">Logout</span>
+							<span onClick={() => {
+								localStorage.removeItem('userData');
+								setIsLogin(false);
+								navigate('/');
+							}} className="link-no-style header-container__nav2-post">Logout</span>
 					</li>
 				</ul>
-				:
+			) : (
 				<ul className="header-menu-items">
 					<li>
-						<Link to={'/post'} className="link-no-style header-container__nav2-post">Post a Campaign</Link>
+						<span onClick={() => handleMenuClick('/post')} className="link-no-style header-container__nav2-post">Post a Campaign</span>
 					</li>
 					<li>
-						<Link to={'/login'} className="link-no-style header-container__nav2-post">Login</Link>
+						<span onClick={() => handleMenuClick('/login')} className="link-no-style header-container__nav2-post">Login</span>
 					</li>
-				</ul>}
+				</ul>
+			)}
 		</div>
 	);
 };

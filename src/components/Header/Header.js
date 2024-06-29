@@ -12,6 +12,7 @@ const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [user, setUser] = useState('');
   const [userId, setUserId] = useState('');
+  const [isMenu, setIsMenu] = useState(false);
 
   useEffect(() => {
     const authTokenValidation = async () => {
@@ -42,10 +43,14 @@ const Header = () => {
     navigate('/');
   }
 
+  const toggleMenu = () => {
+    setIsMenu(!isMenu);
+  }
+
   return (
     <div className="header">
-      <div className="header-menu">
-        <Menu />
+      <div className={isMenu ? "header-menu": "header-menu header-menu-close"}>
+        <Menu onMenuClick={toggleMenu} />
       </div>
       <div className="header-container">
         <div className="header-container__logo-nav">
@@ -58,7 +63,7 @@ const Header = () => {
             <li>About</li>
             <li>Contact Us</li>
           </ul>
-          <img src={hamburger} alt="hamburger icon" className="header-container__icon" />
+          <img src={hamburger} alt="hamburger icon" onClick={toggleMenu} className="header-container__icon" />
         </div>
         <div className="header-container__operations">
           <ul className="header-container__nav2">
