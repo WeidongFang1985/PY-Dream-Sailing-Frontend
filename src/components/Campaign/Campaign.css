@@ -71,3 +71,15 @@
     height: auto;
     max-height: 200px;
 }
+
+@media (max-width: 1200px) {
+    .campaigns-item__content-img {
+        flex: 4.5;
+    }
+}
+
+@media (max-width: 900px) {
+    .campaigns-item__content-img {
+        flex: 4;
+    }
+}

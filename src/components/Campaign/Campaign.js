@@ -7,13 +7,14 @@ import loading from '../../assets/loading.svg';
 
 const Campaign = () => {
   const [campaigns, setCampaigns] = useState([]);
+  const [limit, setLimit] = useState(400);
 
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
         const fetchedCampaigns = await getAllCampaigns();
-        const approvedCampaigns = fetchedCampaigns.filter(campaign => campaign.is_approved === "true"); // Filter only approved campaigns
-        setCampaigns(approvedCampaigns.map(campaign => ({ ...campaign, expanded: false }))); // Add an expanded state to each campaign
+        const approvedCampaigns = fetchedCampaigns.filter(campaign => campaign.is_approved === "true");
+        setCampaigns(approvedCampaigns.map(campaign => ({ ...campaign, expanded: false })));
       } catch (error) {
         console.error('Error fetching campaigns:', error);
       }
@@ -22,8 +23,27 @@ const Campaign = () => {
     fetchCampaigns();
   }, []);
 
-  const truncateAtFullWord = (text, limit) => {
-    const boundary = text.lastIndexOf(' ', limit);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1180) {
+        setLimit(400);
+      } else if (window.innerWidth > 900) {
+        setLimit(260);
+      } else if (window.innerWidth > 550){
+        setLimit(120);
+      } else if (window.innerWidth < 500) {
+        setLimit(180)
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const truncateAtFullWord = (text, currentLimit) => {
+    const boundary = text.lastIndexOf(' ', currentLimit);
     return boundary === -1 ? text : text.slice(0, boundary);
   };
 
@@ -42,7 +62,7 @@ const Campaign = () => {
                 <div className="campaigns-item__content">
                   <div className="campaigns-item__content-text">
                     <h3>{campaign.title}</h3>
-                    <p className="content-limited">{truncateAtFullWord(campaign.content, 500)}... <span className="read-more">Read More</span></p>
+                    <p className="content-limited">{truncateAtFullWord(campaign.content, limit)}... <span className="read-more">Read More</span></p>
                     <div className="campaigns-item__content-user">
                       <img src={campaign.author.avatar} alt="User avatar" className="campaigns-item__content-userAvatar"/>
                       <span>{campaign.author.username}</span>
