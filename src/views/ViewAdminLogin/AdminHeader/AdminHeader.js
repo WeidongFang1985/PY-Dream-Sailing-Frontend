@@ -7,7 +7,7 @@ const AdminHeader = () => {
 			<div className="header-container">
 				<div className="header-container__logo-nav admin-nav">
 					<div className="header-container__logo admin-logo">
-						<img src={logo} alt="logo" height="72"/>
+						<img src={logo} alt="logo" className="header-container__logoIcon"/>
 						<span>Dream Sailing Management System</span>
 					</div>
 				</div>

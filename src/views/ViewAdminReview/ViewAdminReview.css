@@ -54,6 +54,10 @@
     padding: 40px;
     display: flex;
     gap: 40px;
+    @media (max-width: 500px) {
+        width: 100vw;
+        padding: 0;
+    }
 }
 
 .review-content__main-campaign {
@@ -68,14 +72,15 @@
     .review-content__sideBar,
     .header-container__nav,
     .header-container__adminNav,
-    .header-container__operations
+    .header-container__operations,
+    .campaign-table th:nth-child(4),
+    .campaign-table td:nth-child(4)
     {
         display: none;
     }
     .review-content__main-campaign h1,
     .campaign-table
     {
-        margin-left: 100px;
+        /*margin-left: 15px;*/
     }
-
 }

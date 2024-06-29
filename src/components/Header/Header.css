@@ -53,6 +53,7 @@
 }
 
 .header-container__logoIcon {
+    height: 72px;
     @media (max-width: 500px) {
         height: 60px;
     }

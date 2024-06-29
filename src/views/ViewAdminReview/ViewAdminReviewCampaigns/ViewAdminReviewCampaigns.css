@@ -13,7 +13,6 @@
 
 .modal-content {
     width: 600px;
-    max-height: 500px;
     background: white;
     padding: 20px;
     border-radius: 5px;
@@ -87,4 +86,16 @@
 
 .review-campaign-operation-decline:hover {
     background-color: #f64747;
+}
+
+.review-campaign-logout {
+    display: none;
+    @media (max-width: 500px) {
+        display: flex;
+        margin-left: 10px;
+    }
+}
+
+.review-campaign-operation-logout {
+    background-color: black;
 }
