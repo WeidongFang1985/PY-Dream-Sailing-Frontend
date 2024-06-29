@@ -4,10 +4,13 @@ import './Campaign.css';
 import hot from '../../assets/hot.png';
 import business from '../../assets/business.png';
 import loading from '../../assets/loading.svg';
+import cancel from "../../assets/cancel.svg";
 
 const Campaign = () => {
   const [campaigns, setCampaigns] = useState([]);
   const [limit, setLimit] = useState(400);
+  const [content, setContent] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchCampaigns = async () => {
@@ -47,6 +50,18 @@ const Campaign = () => {
     return boundary === -1 ? text : text.slice(0, boundary);
   };
 
+  const showReadme = (value) => {
+    setContent(value);
+    setIsModalOpen(true);
+  }
+
+  const hideModal = (e) => {
+    e.stopPropagation();
+    if (e.target.id === "modal-backdrop" || e.target.className === "header-menu-cancelIcon") {
+      setIsModalOpen(false);
+    }
+  }
+
   return (
     <div>
       <h2>What are the new Social Campaigns?</h2>
@@ -62,7 +77,7 @@ const Campaign = () => {
                 <div className="campaigns-item__content">
                   <div className="campaigns-item__content-text">
                     <h3>{campaign.title}</h3>
-                    <p className="content-limited">{truncateAtFullWord(campaign.content, limit)}... <span className="read-more">Read More</span></p>
+                    <p className="content-limited">{truncateAtFullWord(campaign.content, limit)}... <span className="read-more" onClick={() => showReadme(campaign.content)}>Read More</span></p>
                     <div className="campaigns-item__content-user">
                       <img src={campaign.author.avatar} alt="User avatar" className="campaigns-item__content-userAvatar"/>
                       <span>{campaign.author.username}</span>
@@ -83,6 +98,16 @@ const Campaign = () => {
           </ul>
         ) : (
           <img src={loading} alt="loading" width={40}/>
+        )}
+        {isModalOpen && (
+          <div id="modal-backdrop" className="modal-backdrop" onClick={hideModal}>
+            <div className="modal-content">
+              <div className="header-menu-cancelBox">
+                <img src={cancel} alt="cancel" className="header-menu-cancelIcon" onClick={hideModal}/>
+              </div>
+              <p>{content}</p>
+            </div>
+          </div>
         )}
       </div>
     </div>
