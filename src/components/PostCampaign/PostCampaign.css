@@ -56,9 +56,16 @@
     cursor: pointer;
 }
 
+.loading_icon {
+    width: 60px;
+}
+
 .image-container {
     display: flex;
     gap: 20px;
+    @media (max-width: 500px) {
+        flex-direction: column;
+    }
 }
 
 .uploadImgBox {
@@ -67,6 +74,9 @@
 
 .post-campaign__uploadImg {
     height: 25vh;
+    @media (max-width: 500px) {
+        height: 180px;
+    }
 }
 
 .closeIconWrapper {
