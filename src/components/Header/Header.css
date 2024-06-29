@@ -5,6 +5,21 @@
     @media (max-width: 500px) {
         height: 60px;
     }
+    position: relative;
+}
+
+.header-menu {
+    display: none;
+    @media (max-width: 500px) {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50vw;
+        height: 50vh;
+        background-color: white;
+        z-index: 999;
+    }
 }
 
 .header-container {

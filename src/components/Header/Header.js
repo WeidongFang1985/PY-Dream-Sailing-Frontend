@@ -5,6 +5,7 @@ import { authToken } from '../../services/authToken';
 import {useEffect, useState} from "react";
 import {getUserData} from "../../services/getUserData";
 import hamburger from '../../assets/hamburger.svg';
+import Menu from "./Menu/Menu";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const Header = () => {
         }
       } catch (error) {
         setIsLogin(false);
+        localStorage.removeItem('userData');
       }
     };
     authTokenValidation();
@@ -42,6 +44,9 @@ const Header = () => {
 
   return (
     <div className="header">
+      <div className="header-menu">
+        <Menu />
+      </div>
       <div className="header-container">
         <div className="header-container__logo-nav">
           <div className="header-container__logo">
