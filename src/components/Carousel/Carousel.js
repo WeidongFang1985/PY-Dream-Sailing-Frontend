@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import './Carousel.css';
 import group from '../../assets/group.png';
+import cancel from "../../assets/cancel.svg";
 
 const PrevArrow = (props) => {
 	const { className, onClick } = props;
@@ -32,6 +33,8 @@ const Carousel = ({ items }) => {
 	const [settingsThumbs, setSettingsThumbs] = useState({});
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+	const [content, setContent] = useState('');
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	useEffect(() => {
 		setSettingsMain({
@@ -69,6 +72,18 @@ const Carousel = ({ items }) => {
 		return () => window.removeEventListener('resize', handleResize);
 	}, []);
 
+	const showReadme = (value) => {
+		setContent(value);
+		setIsModalOpen(true);
+	}
+
+	const hideModal = (e) => {
+		e.stopPropagation();
+		if (e.target.id === "modal-backdrop" || e.target.className === "header-menu-cancelIcon") {
+			setIsModalOpen(false);
+		}
+	}
+
 	const truncateAtFullWord = (text, limit) => {
 		const boundary = text.lastIndexOf(' ', limit);
 		return boundary === -1 ? text : text.slice(0, boundary);
@@ -87,7 +102,7 @@ const Carousel = ({ items }) => {
 						<div className="slider-box__description-box">
 							<h3 className="slider-box__description-box-title">{item.title}</h3>
 							<p className="slider-box__description-box-description">
-								{truncateAtFullWord(item.description, descriptionLimit)}... <span className="read-more">Read More</span>
+								{truncateAtFullWord(item.description, descriptionLimit)}... <span className="read-more" onClick={() => showReadme(item.description)}>Read More</span>
 							</p>
 							<div className="slider-box-profile">
 								<div className="slider-box-profile__user">
@@ -114,6 +129,16 @@ const Carousel = ({ items }) => {
 					</div>
 				))}
 			</Slider>
+			{isModalOpen && (
+				<div id="modal-backdrop" className="modal-backdrop" onClick={hideModal}>
+					<div className="modal-content">
+						<div className="header-menu-cancelBox">
+							<img src={cancel} alt="cancel" className="header-menu-cancelIcon" onClick={hideModal}/>
+						</div>
+						<p>{content}</p>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };

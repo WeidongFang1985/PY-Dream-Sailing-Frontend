@@ -42,6 +42,10 @@
     color: blue;
 }
 
+.read-more:hover {
+    cursor: pointer;
+}
+
 .slider-box-profile {
     display: flex;
     border: 1px solid #E5E5E5;
