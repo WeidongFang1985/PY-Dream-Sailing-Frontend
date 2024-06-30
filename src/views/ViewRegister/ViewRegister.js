@@ -7,7 +7,7 @@ const ViewRegister = () => {
 	return (
 		<div className="view-register">
 			<Header />
-			<div>
+			<div className="login">
 				<Register />
 			</div>
 
