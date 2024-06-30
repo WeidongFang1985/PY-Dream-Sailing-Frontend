@@ -30,11 +30,15 @@ const Menu = ({ onMenuClick }) => { // 添加一个参数来处理点击事件
 			{isLogin ? (
 				<ul className="header-menu-items">
 					<li>
+						<span onClick={() => handleMenuClick('/')} className="link-no-style header-container__nav2-post">Home</span>
+					</li>
+					<li>
 						<span onClick={() => handleMenuClick('/post')} className="link-no-style header-container__nav2-post">Post a Campaign</span>
 					</li>
 					<li>
 						{currentUser && (
-							<span onClick={() => handleMenuClick(`/profile/${currentUser.id}`)} className="link-no-style header-container__nav2-post">
+							<span onClick={() => handleMenuClick(`/profile/${currentUser.id}`)}
+										className="link-no-style header-container__nav2-post">
 								Review
 							</span>
 						)}
@@ -50,10 +54,14 @@ const Menu = ({ onMenuClick }) => { // 添加一个参数来处理点击事件
 			) : (
 				<ul className="header-menu-items">
 					<li>
+						<span onClick={() => handleMenuClick('/')} className="link-no-style header-container__nav2-post">Home</span>
+					</li>
+					<li>
 						<span onClick={() => handleMenuClick('/post')} className="link-no-style header-container__nav2-post">Post a Campaign</span>
 					</li>
 					<li>
-						<span onClick={() => handleMenuClick('/login')} className="link-no-style header-container__nav2-post">Login</span>
+						<span onClick={() => handleMenuClick('/login')}
+									className="link-no-style header-container__nav2-post">Login</span>
 					</li>
 				</ul>
 			)}
