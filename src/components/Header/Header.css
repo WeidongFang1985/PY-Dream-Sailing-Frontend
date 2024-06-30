@@ -59,6 +59,10 @@
     }
 }
 
+.header-container__logoIcon,.header-container__title:hover {
+    cursor: pointer;
+}
+
 .header-container__logo span {
     font-family: Inter, serif;
     font-weight: 700;

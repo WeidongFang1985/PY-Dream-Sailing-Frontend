@@ -55,11 +55,15 @@ const Header = () => {
       <div className="header-container">
         <div className="header-container__logo-nav">
           <div className="header-container__logo">
-            <img src={logo} alt="logo" height="72" className="header-container__logoIcon"/>
-            <span>Dream Sailing</span>
+            <Link to="/" className="link-no-style">
+              <img src={logo} alt="logo" height="72" className="header-container__logoIcon"/>
+            </Link>
+            <Link to="/" className="link-no-style">
+              <span className="header-container__title">Dream Sailing</span>
+            </Link>
           </div>
           <ul className="header-container__nav">
-            <li><Link to="/" className="link-no-style">Home</Link></li>
+          <li><Link to="/" className="link-no-style">Home</Link></li>
             <li>About</li>
             <li>Contact Us</li>
           </ul>
