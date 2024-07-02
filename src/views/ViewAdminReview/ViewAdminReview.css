@@ -32,16 +32,9 @@
     transition: background-color 0.3s;
 }
 
-.review-content__sideBar-item-active::before {
-    background-color: #2F879B;
-}
-
-.review-content__sideBar-item-active::before {
-    background-color: #2F879B;
-}
-
+.review-content__sideBar-item-active::before,
 .review-content__sideBar-item-active {
-    color: #2F879B;
+    background-color: #2F879B;
 }
 
 .review-content__sideBar li:hover {
@@ -54,10 +47,6 @@
     padding: 40px;
     display: flex;
     gap: 40px;
-    @media (max-width: 500px) {
-        width: 100vw;
-        padding: 0;
-    }
 }
 
 .review-content__main-campaign {
@@ -69,18 +58,16 @@
 }
 
 @media (max-width: 500px) {
+    .review-content__main {
+        width: 100vw;
+        padding: 0;
+    }
     .review-content__sideBar,
     .header-container__nav,
     .header-container__adminNav,
     .header-container__operations,
     .campaign-table th:nth-child(4),
-    .campaign-table td:nth-child(4)
-    {
+    .campaign-table td:nth-child(4) {
         display: none;
-    }
-    .review-content__main-campaign h1,
-    .campaign-table
-    {
-        /*margin-left: 15px;*/
     }
 }

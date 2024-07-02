@@ -1,32 +1,35 @@
 .animation_bg {
-    animation:slide 3s ease-in-out infinite alternate;
+    animation: slide 3s ease-in-out infinite alternate;
     background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
-    bottom:0;
-    left:-50%;
-    opacity:.5;
-    position:fixed;
-    right:-50%;
+    bottom: 0;
+    left: -50%;
+    opacity: 0.5;
+    position: fixed;
+    right: -50%;
     top: 72px;
-    z-index:-1;
-    @media (max-width: 500px) {
+    z-index: -1;
+}
+
+@media (max-width: 500px) {
+    .animation_bg {
         top: 60px;
     }
 }
 
 .animation_bg2 {
-    animation-direction:alternate-reverse;
-    animation-duration:4s;
+    animation-direction: alternate-reverse;
+    animation-duration: 4s;
 }
 
 .animation_bg3 {
-    animation-duration:5s;
+    animation-duration: 5s;
 }
 
 @keyframes slide {
     0% {
-        transform:translateX(-25%);
+        transform: translateX(-25%);
     }
     100% {
-        transform:translateX(25%);
+        transform: translateX(25%);
     }
 }

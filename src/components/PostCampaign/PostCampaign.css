@@ -44,7 +44,7 @@
     font-family: Outfit, serif;
 }
 
-.post-campaign__input,.post-campaign__content:focus {
+.post-campaign__input, .post-campaign__content:focus {
     outline: none;
 }
 
@@ -63,7 +63,10 @@
 .image-container {
     display: flex;
     gap: 20px;
-    @media (max-width: 500px) {
+}
+
+@media (max-width: 500px) {
+    .image-container {
         flex-direction: column;
     }
 }
@@ -74,7 +77,10 @@
 
 .post-campaign__uploadImg {
     height: 25vh;
-    @media (max-width: 500px) {
+}
+
+@media (max-width: 500px) {
+    .post-campaign__uploadImg {
         height: 180px;
     }
 }
@@ -94,12 +100,12 @@
     background-color: #cccbcb;
 }
 
-.closeIcon {
-    width: 20px;
-}
-
 .closeIconWrapper:hover {
     cursor: pointer;
+}
+
+.closeIcon {
+    width: 20px;
 }
 
 .post-campaign__submit-container {

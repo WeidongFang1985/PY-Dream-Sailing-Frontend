@@ -2,15 +2,21 @@
     height: 72px;
     width: 100vw;
     border-bottom: 1px solid black;
-    @media (max-width: 500px) {
+    position: relative;
+}
+
+@media (max-width: 500px) {
+    .header {
         height: 60px;
     }
-    position: relative;
 }
 
 .header-menu {
     display: none;
-    @media (max-width: 500px) {
+}
+
+@media (max-width: 500px) {
+    .header-menu {
         display: flex;
         position: absolute;
         top: 0;
@@ -23,7 +29,10 @@
 }
 
 .header-menu-close {
-    @media (max-width: 500px) {
+}
+
+@media (max-width: 500px) {
+    .header-menu-close {
         display: none;
     }
 }
@@ -40,7 +49,10 @@
 
 .header-container__logo-nav {
     display: flex;
-    @media (max-width: 500px) {
+}
+
+@media (max-width: 500px) {
+    .header-container__logo-nav {
         width: 100%;
         justify-content: space-between;
     }
@@ -54,12 +66,15 @@
 
 .header-container__logoIcon {
     height: 72px;
-    @media (max-width: 500px) {
+}
+
+@media (max-width: 500px) {
+    .header-container__logoIcon {
         height: 60px;
     }
 }
 
-.header-container__logoIcon,.header-container__title:hover {
+.header-container__logoIcon, .header-container__title:hover {
     cursor: pointer;
 }
 
@@ -68,7 +83,10 @@
     font-weight: 700;
     font-size: 24px;
     color: #2F879B;
-    @media (max-width: 500px) {
+}
+
+@media (max-width: 500px) {
+    .header-container__logo span {
         font-size: 20px;
     }
 }
@@ -79,12 +97,12 @@
     gap: 30px;
     list-style-type: none;
     font-weight: 700;
+    font-family: Inter, serif;
 }
 
 .header-container__nav li {
     transition: color 0.3s ease;
     cursor: pointer;
-    font-family: Inter, serif;
 }
 
 .header-container__nav li:hover {
@@ -99,17 +117,13 @@
     font-weight: 700;
 }
 
-.header-container__nav2 span, .header-container__nav2-post  {
+.header-container__nav2 span, .header-container__nav2-post {
     transition: color 0.3s ease;
     cursor: pointer;
     font-family: Inter, serif;
 }
 
-.header-container__nav2 span:hover {
-    color: #2F879B;
-}
-
-.header-container__nav2-post:hover {
+.header-container__nav2 span:hover, .header-container__nav2-post:hover {
     color: #2F879B;
 }
 
@@ -139,7 +153,10 @@
 
 .header-container__icon {
     display: none;
-    @media (max-width: 500px) {
+}
+
+@media (max-width: 500px) {
+    .header-container__icon {
         display: flex;
         width: 40px;
     }

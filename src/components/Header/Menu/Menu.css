@@ -8,17 +8,24 @@
 }
 
 .header-menu-cancelBox {
-    @media (max-width: 500px) {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .header-menu-cancelBox {
         display: flex;
         justify-content: end;
         margin-top: 10px;
-        width: 48vw
+        width: 48vw;
     }
 }
 
 .header-menu-cancelIcon {
     display: none;
-    @media (max-width: 500px) {
+}
+
+@media (max-width: 500px) {
+    .header-menu-cancelIcon {
         display: flex;
         width: 30px;
         padding: 6px;
