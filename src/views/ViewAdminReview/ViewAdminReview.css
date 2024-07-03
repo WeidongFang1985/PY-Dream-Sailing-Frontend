@@ -25,15 +25,14 @@
     content: '';
     display: block;
     width: 8px;
-    height: 70%;
+    height: 75%;
     background-color: transparent;
     position: absolute;
     left: -40px;
     transition: background-color 0.3s;
 }
 
-.review-content__sideBar-item-active::before,
-.review-content__sideBar-item-active {
+.review-content__sideBar-item-active::before {
     background-color: #2F879B;
 }
 

@@ -4,7 +4,7 @@ import logo from "../../../assets/logo.png";
 import search from '../../../assets/search.svg';
 import email from '../../../assets/mail.png';
 import user from '../../../assets/userIcon.png';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const ViewAdminReviewHeader = () => {
 	const navigate = useNavigate();
@@ -19,8 +19,12 @@ const ViewAdminReviewHeader = () => {
 			<div className="review-header__container">
 				<div className="header-container__logo-nav">
 					<div className="header-container__logo">
-						<img src={logo} alt="logo" height="72"/>
-						<span>Dream Sailing</span>
+						<Link to="/" className="link-no-style">
+							<img src={logo} alt="logo" height="72" className="header-container__logoIcon"/>
+						</Link>
+						<Link to="/" className="link-no-style">
+							<span className="header-container__title">Dream Sailing</span>
+						</Link>
 					</div>
 					<ul className="header-container__nav header-container__adminNav">
 						<li className="review-header__nav">
