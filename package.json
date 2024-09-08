@@ -2,7 +2,7 @@
   "name": "py-dream-sailing-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://WeidongFang1985.github.io/PY-Dream-Sailing-Frontend",
+  "homepage": "https://dreamsailing.online",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
