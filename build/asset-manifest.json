@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PY-Dream-Sailing-Frontend/static/css/main.60c1dc21.css",
-    "main.js": "/PY-Dream-Sailing-Frontend/static/js/main.7448313d.js",
+    "main.js": "/PY-Dream-Sailing-Frontend/static/js/main.3dd035c3.js",
     "static/media/Kate19.png": "/PY-Dream-Sailing-Frontend/static/media/Kate19.8f46d79bf0470f1e71a8.png",
     "static/media/Sam05.png": "/PY-Dream-Sailing-Frontend/static/media/Sam05.ca678727ff75b7b605f2.png",
     "static/media/Nina24.png": "/PY-Dream-Sailing-Frontend/static/media/Nina24.a9bec55d37265c3242f4.png",
@@ -38,10 +38,10 @@
     "static/media/search.svg": "/PY-Dream-Sailing-Frontend/static/media/search.40e5d86e5ab29c9a4f991b52867f171f.svg",
     "static/media/cross.svg": "/PY-Dream-Sailing-Frontend/static/media/cross.18e18f8f6b93633392476449e3fe4312.svg",
     "main.60c1dc21.css.map": "/PY-Dream-Sailing-Frontend/static/css/main.60c1dc21.css.map",
-    "main.7448313d.js.map": "/PY-Dream-Sailing-Frontend/static/js/main.7448313d.js.map"
+    "main.3dd035c3.js.map": "/PY-Dream-Sailing-Frontend/static/js/main.3dd035c3.js.map"
   },
   "entrypoints": [
     "static/css/main.60c1dc21.css",
-    "static/js/main.7448313d.js"
+    "static/js/main.3dd035c3.js"
   ]
 }
