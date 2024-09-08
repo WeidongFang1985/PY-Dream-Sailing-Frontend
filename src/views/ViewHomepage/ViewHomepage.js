@@ -68,8 +68,8 @@ const ViewHomepage = () => {
 			altText: "Image 6",
 			title: "Urgent Call for Widening Centenary Highway Both Ways in Springfield Central",
 			description: "The Centenary Highway in Springfield Central is struggling to meet the needs of our rapidly growing community. With areas like Ripley experiencing over 12% growth annually and neighboring suburbs expanding quickly, the current single-lane highway is causing significant delays and safety concerns for commuters.It's evident that we've outgrown this highway. To address the increasing traffic volume and ensure commuter safety, urgent action is needed to widen it to a minimum of two lanes each way. The current layout has led to numerous head-on collisions, posing a serious risk to drivers and passengers alike.Join us in calling on local authorities to prioritize the widening of Centenary Highway through Springfield Central. Let's ensure commuters have a faster, safer route, allowing them to spend more time with their families and less time stuck in traffic. Share this campaign to amplify our message and push for immediate action.",
-			avatar:"https://py-uploadimages.s3.ap-southeast-2.amazonaws.com/Ali88.png",
-			username: Ali88,
+			avatar: Ali88,
+			username: "Ali88",
 			participants:"9,128"
 		},
 	];
